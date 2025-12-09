@@ -99,3 +99,8 @@ def get_tasks_list(token: str = Depends(oauth2_scheme), db: Session = Depends(ge
     verify_token(token)
     tasks = db.query(models.Task).all()
     return tasks
+
+
+@app.get("/")
+def root():
+    return {"message": "FastTODO service is running"}
